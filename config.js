@@ -7,7 +7,10 @@ const configuration = {
 const UserData = {
     Discord_Username: "",
     Discord_Support_Link: "",
-    Public_Contact_Email: ""
+    Public_Contact_Email: "",
+    User_Project_Data: {
+        path: './bc/projects/Project1'
+    } 
 }
 
 module.exports = {

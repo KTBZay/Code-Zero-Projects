@@ -1,11 +1,12 @@
 const { configuration, UserData } = require("../config");
 const fs = require('fs');
-if (!fs.existsSync('./configs/User/')) {
-    fs.mkdirSync('./configs/User/')
-};
-if (!fs.existsSync('./configs/Bot/')) {
-    fs.mkdirSync('./configs/Bot/')
-};
+const { FolderCreator } = require("./lib/FolderCreator/cz.FolderCreator");
+const { FileCreator } = require("./lib/FileCreator/cz.FileCreator");
+const { config } = require("process");
 
-fs.writeFileSync(`./configs/User/botconfig.bak.js`, ` const Bot = {Token: '${configuration.Discord_Bot_Token}', Prefix: '${configuration.Discord_Bot_Prefix}', ID: '${configuration.Discord_Bot_ID}'};`)
-fs.writeFileSync(`./configs/Bot/botconfig.js`, `const Bot = {Token: '${configuration.Discord_Bot_Token}', Prefix: '${configuration.Discord_Bot_Prefix}', ID: '${configuration.Discord_Bot_ID}'); module.exports = {Bot}`)
+    if (!fs.existsSync(UserData.User_Project_Data.path)) {
+        fs.mkdirSync(UserData.User_Project_Data.path, { recursive: true });
+}
+fs.writeFileSync(`${UserData.User_Project_Data.path}/discord_bot.js`, `const {Client} = require('discord.js') \n const config = { token: '${configuration.Discord_Bot_Token}', prefix: '${configuration.Discord_Bot_Prefix}'}\n const client = new Client({ Intents: ["GUILD_MESSAGING", "GUILDS"] } \n client.on('ready', () => { console.log('Logged in') } ; \n client.login(config.token)`);
+
+
