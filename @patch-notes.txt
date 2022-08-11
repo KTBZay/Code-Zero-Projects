@@ -1,13 +1,2 @@
-- Added 2 new functions
-	FileCreate(path,data);
-	FolderCreate(path);
-
-- Added a new config option
-	User_Project_Data;
-	You can change this, but wouldnt recommend it.
-	Defualts to bc  folder
-
-- Fixed errors
-
-
-All notes updated at 2:58 8/10/22
+- Moved to JS (dll is ava for c#);
+All notes updated ay 6:36 8/9/22

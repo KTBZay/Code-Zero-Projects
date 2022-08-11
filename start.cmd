@@ -1,2 +1,2 @@
-node ./bc/system.js
+node ./app/system.js
 pause
