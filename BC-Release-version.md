@@ -2,7 +2,7 @@
 
 
 ### <em><strong>Current</em></strong>
-> Update_Name: bc_update2_fix
+> Update_Name: bc_update2_offical
 > Patch? = False
 
 ### Past
