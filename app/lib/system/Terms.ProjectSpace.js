@@ -1,4 +1,3 @@
-const { User } = require('discord.js');
 const fs = require('node:fs');
 const { configuration, UserData } = require('../../../config');
 const ProjectSpace = () => {
@@ -7,6 +6,13 @@ const ProjectSpace = () => {
         if (configuration.SystemHosted === true) {
             throw 'You cannot host a bot and work at the same tome Errx. 2'
         } else {
+            console.log(`
+ ########################################################
+ #  Please  Note that this program is under development #
+ #      We have added  files to your project dir        #
+ #        UpdateLogs: Added ./events/ready.js           #
+ ########################################################
+`)
             fs.mkdirSync(UserData.User_Project_Data.path, { recursive: true })
         }
         if (!fs.existsSync(`${UserData.User_Project_Data.path}/commands`)) {
@@ -15,8 +21,13 @@ const ProjectSpace = () => {
         if (!fs.existsSync(`${UserData.User_Project_Data.path}/events`)) {
             fs.mkdirSync(`${UserData.User_Project_Data.path}/events`)
         }
+        if (!fs.existsSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/`)) {
+            fs.mkdirSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/`, { recursive: true });
+        }
+        
         setTimeout(() => {
-            fs.writeFileSync(`${UserData.User_Project_Data.path}/deploy.js`, `
+            fs.writeFileSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/app.main.runtime`, `${configuration.Discord_Bot_ID}\n ${configuration.Discord_Bot_Token}\n ${configuration.Discord_Guild_ID}\n ${UserData.Discord_Support_Link}\n ${UserData.Discord_Username}\n ${UserData.Public_Contact_Email}\n ${UserData.User_Project_Data.path}`);
+        fs.writeFileSync(`${UserData.User_Project_Data.path}/deploy.js`, `
         const fs = require('node:fs');\n
         const path = require('node:path');\n
         const { Client, Collection } = require('discord.js');\n
@@ -81,9 +92,19 @@ const ProjectSpace = () => {
 }
 
 `)
+            fs.writeFileSync(`${UserData.User_Project_Data.path}/events/ready.js`, `
+            	module.exports = {
+            	name: 'ready',
+	            once: true,
+	            execute(client) {
+		        console.log("Ready! and logged on " + client.user.tag );
+	        }
+	        };
+
+`)
             fs.writeFileSync(`${UserData.User_Project_Data.path}/deploy-to-app.cmd`, `node ./deploy.js \n pause`)
             fs.writeFileSync(`${UserData.User_Project_Data.path}/run-bot.cmd`, `node ./main.js \n pause`)
-
+            console.log('TERM: We have created: ' + fs.readdirSync(UserData.User_Project_Data.path) + " In your project dir")
         }, 3000)
     }
 }

@@ -1,4 +1,10 @@
-console.log(`
+const { configuration, UserData } = require("../../../config");
+
+const RegisterCmds = () => {
+    if (configuration.SystemHosted === false) {
+        console.log('CZ: Its recommended that you turn on SystemHosted!')
+    } else {
+        console.log(`
  ######################################################
  #  Please  Note that this program is under devlopment#
  # ******If any issues found report to the discord****#
@@ -6,13 +12,13 @@ console.log(`
  # *************Current Version: 1.0.3****************#
  ######################################################
 `)
-const { configuration, UserData } = require("../../../config");
-
-const RegisterCmds = () => {
-    if (configuration.SystemHosted === false) {
-        console.log('CZ: Its recommended that you turn on SystemHosted!')
-    } else {
         const fs = require('node:fs');
+        if (!fs.existsSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/`)) {
+            fs.mkdirSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/`, { recursive: true });
+        }
+        setTimeout(() => {
+            fs.writeFileSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/app.main.runtime`, `USER.DISCORD.CLIENTID = ${configuration.Discord_Bot_ID}\n USER.DISCORD.CLIENTTOKEN = ${configuration.Discord_Bot_Token}\n USER.DISCORD.GUILDID = ${configuration.Discord_Guild_ID}\n USER.DATA.LINK =  ${UserData.Discord_Support_Link}\n USER.DATA.USERNAME =  ${UserData.Discord_Username}\n ${UserData.Public_Contact_Email}\n ${UserData.User_Project_Data.path}`)
+        }, 2000)
         const path = require('node:path');
         const { Client, Collection } = require('discord.js');
         const { REST } = require('@discordjs/rest')

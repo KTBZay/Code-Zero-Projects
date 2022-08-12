@@ -8,6 +8,6 @@ module.exports = {
 		if (!fs.existsSync('./app/lib/logs/')) {
 			fs.mkdirSync('./app/lib/logs/', {recursive: true})
         }
-		fs.writeFileSync('./app/lib/logs/startup.log', `CODEZEROSTARTUP: {\n client_commands: ${client.commands} \n client_Token: ${client.token} \n client_Files: ${Files}\n}`)
+		fs.writeFileSync('./app/lib/logs/botStartup.log.', `CODEZEROSTARTUP: {\n client_commands: ${client.commands} \n client_Token: ${client.token} \n client_Files: ${Files}\n}`)
 	},
 };

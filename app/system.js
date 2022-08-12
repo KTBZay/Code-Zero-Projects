@@ -5,7 +5,10 @@ const { FileCreator } = require("./lib/FileCreator/cz.FileCreator");
 const { User } = require("discord.js");
 const { SystemHosted } = require("./lib/system/Terms");
 const { ProjectSpace } = require("./lib/system/Terms.ProjectSpace");
+const { system_mim } = require('./lib/system.mim');
+const { Sys_Logger } = require("./lib/Resource/system.logger");
 console.log('CZ: Getting started');
 
-SystemHosted()
-ProjectSpace()
+SystemHosted();
+ProjectSpace();
+Sys_Logger();
