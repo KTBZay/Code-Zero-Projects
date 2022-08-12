@@ -1,5 +1,0 @@
-CODEZEROSTARTUP: {
- client_commands: [object Map] 
- client_Token: MTAwNzM1MDU2OTg1MTE3OTAwOA.GzQavk.g4Q-0zTdYurIDd4qRxBqMm8j704lYfn3QoHYXk 
- client_Files: FileCreator,FolderCreator,logs,system
-}
