@@ -2,7 +2,7 @@ const configuration = {
     Discord_Guild_ID: "1--------------",
     Discord_Bot_ID: "1007350569851179008", // this is VERY REQUIRED
     Discord_Bot_Token: "",// this is VERY REQUIRED
-    SystemHosted: true // Creates bot using system code. HIGHLY RECOMMEND AND UP TO DATE WITH DISCORD.JS
+    SystemHosted: false // Creates bot using system code. HIGHLY RECOMMEND AND UP TO DATE WITH DISCORD.JS
 }
 
 const UserData = {
@@ -12,7 +12,7 @@ const UserData = {
     User_Project_Data: {
         path: './app/projects/Bot',
         isSDK_used: false,
-        IsWorkSpace: false,
+        IsWorkSpace: true,
         Apps: {
             App1: {
                 name: 'Bot',

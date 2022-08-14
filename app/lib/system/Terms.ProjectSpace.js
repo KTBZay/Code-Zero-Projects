@@ -24,6 +24,9 @@ const ProjectSpace = () => {
         if (!fs.existsSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/`)) {
             fs.mkdirSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/`, { recursive: true });
         }
+        if (!fs.existsSync(`${UserData.User_Project_Data.path}/modules/`)) {
+            fs.mkdirSync(`${UserData.User_Project_Data.path}/modules/`)
+        }
         
         setTimeout(() => {
             fs.writeFileSync(`./app/lib/system/runtime/${UserData.User_Project_Data.Apps.App1.name}/app.main.runtime`, `${configuration.Discord_Bot_ID}\n ${configuration.Discord_Bot_Token}\n ${configuration.Discord_Guild_ID}\n ${UserData.Discord_Support_Link}\n ${UserData.Discord_Username}\n ${UserData.Public_Contact_Email}\n ${UserData.User_Project_Data.path}`);
