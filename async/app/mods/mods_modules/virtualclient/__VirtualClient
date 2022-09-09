@@ -1,0 +1,7 @@
+name: "vClient"
+version: "1.0x"
+scripts: [
+    BetterLoader = {
+      file: require('../virtualclient')
+    }
+]
