@@ -1,7 +1,0 @@
-name: "BetterLoader"
-version: "1.0x"
-scripts: [
-    BetterLoader = {
-      file: require('./__BetterLoader')
-    }
-]
